@@ -11,7 +11,7 @@ body {
   border: 1px solid black;
   border-radius: 1rem;
   margin: 1rem 0;
-  background: url("src/bg.jpg") top center no-repeat;
+  background: url("/bg.71a744d5.jpg") top center no-repeat;
   background-size: 200%;
   box-shadow: 5px 5px 8px #888888;
   width: 100%;
@@ -19,7 +19,7 @@ body {
   color: white;
 }
 .game {
-  background: url("src/bg.jpg") center center no-repeat;
+  background: url("/bg.71a744d5.jpg") center center no-repeat;
   background-size: 150%;
   overflow: hidden;
   height: 30rem;
@@ -47,7 +47,7 @@ body {
   overflow: hidden;
 }
 .trou {
-  background: url("src/brik.jpg") top center no-repeat;
+  background: url("/brik.91577472.jpg") top center no-repeat;
   background-size: 85%;
   position: relative;
   top: 52%;
@@ -56,7 +56,7 @@ body {
 }
 
 .mole {
-  background: url("src/mush.png") center center no-repeat;
+  background: url("/mush.58ebb4ff.png") center center no-repeat;
   background-size: 40%;
   width: 100%;
   height: 4rem;
@@ -70,7 +70,7 @@ body {
 }
 .hole.up2 .mole {
   transform: translateY(0%);
-  background: url("src/mushlife.png") center center no-repeat;
+  background: url("/mushlife.be0a9cbf.png") center center no-repeat;
   background-size: 40%;
 }
 .thend {
@@ -89,3 +89,6 @@ body {
 .thend img {
   width: 60%;
 }
+
+
+/*# sourceMappingURL=/src.a2b27638.css.map */

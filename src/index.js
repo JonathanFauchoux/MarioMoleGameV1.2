@@ -36,14 +36,12 @@ function randHole(holes) {
   const hole = holes[idx];
 
   if (hole === lastHole) {
-    //console.log("try again");
     //si identique au dernier alors on relance
     return randHole(holes);
   }
   lastHole = hole;
   return hole;
 }
-//console.log(randHole(holes));
 
 //vitesse et animation du Mush
 function peep() {
@@ -72,7 +70,8 @@ function peep() {
   }, time);
 }
 
-/* function oneLife() {
+//gain onelife
+function oneLife() {
   const time = randTime(vitMin, vitMax);
   const hole = randHole(holes);
   hole.classList.add("up2");
@@ -82,10 +81,7 @@ function peep() {
     let thend = document.querySelector(".thend");
     if (hole.classList.contains("up2")) {
       Bump.play();
-      vie = vie - 1;
-      vieBoard.innerHTML = vie;
     }
-    //hole.classList.remove("up");
     hole.classList.remove("up2");
 
     if (vie < 0) {
@@ -94,10 +90,10 @@ function peep() {
       thend.style.top = "-90%";
       return;
     }
-    console.log(vie);
+    //console.log(vie);
     if (!timeUp) peep();
   }, time);
-} */
+}
 //Start & setup game
 startButton.addEventListener("click", () => {
   startSound.playbackRate = 1.2;
@@ -117,6 +113,11 @@ startButton.addEventListener("click", () => {
   lvlBoard.innerHTML = lvl;
   // oneLife();
   peep();
+
+  setTimeout(function () {
+    oneLife();
+  }, randTime(1500, 8000));
+
   setTimeout(() => {
     timeUp = true;
     startButton.disabled = false;
@@ -125,7 +126,6 @@ startButton.addEventListener("click", () => {
       startButton.disabled = true;
       nextButton.disabled = false;
       lvlBoard.innerHTML = lvl;
-      console.log(lvl);
     }
   }, 10000);
 });
@@ -136,8 +136,12 @@ nextButton.addEventListener("click", () => {
   nextSound.play();
   nextButton.disabled = true;
   timeUp = false;
-  oneLife();
+
   peep();
+  setTimeout(function () {
+    oneLife();
+  }, randTime(1500, 8000));
+
   vitMax = vitMax / 1.2;
   vitMin = vitMin / 1.2;
   setTimeout(() => {
@@ -148,7 +152,6 @@ nextButton.addEventListener("click", () => {
       startButton.disabled = true;
       nextButton.disabled = false;
       lvlBoard.innerHTML = lvl;
-      console.log(lvl);
     }
   }, 10000);
 });
@@ -156,13 +159,24 @@ nextButton.addEventListener("click", () => {
 board.addEventListener("click", (e) => {
   let vieBoard = document.querySelector(".vie");
   let thend = document.querySelector(".thend");
-  if (e.target.classList.contains("mole")) {
+  // console.log(e.target.parentElement.classList);
+  if (
+    e.target.classList.contains("mole") &&
+    e.target.parentElement.classList.contains("up")
+  ) {
     coin.playbackRate = 2.2;
     coin.play();
     e.target.parentElement.classList.remove("up");
-    console.log(e.target.parentElement);
-  } else if (e.target.parentElement.classList.contains("up2")) {
+  } else if (
+    e.target.classList.contains("mole") &&
+    e.target.parentElement.classList.contains("up2")
+  ) {
+    coin.playbackRate = 2.2;
+    coin.play();
+    //console.log("vie", e.target.parentElement);
     vie = vie + 1;
+    vieBoard.innerHTML = vie;
+    e.target.parentElement.classList.remove("up2");
   } else {
     //console.log("Noooooo!");
     Bump.play();
