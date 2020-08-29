@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./src\\bg.jpg":[["bg.71a744d5.jpg","src/src/bg.jpg"],"src/src/bg.jpg"],"./src\\brik.jpg":[["brik.91577472.jpg","src/src/brik.jpg"],"src/src/brik.jpg"],"./src\\mush.png":[["mush.58ebb4ff.png","src/src/mush.png"],"src/src/mush.png"],"./src\\mushlife.png":[["mushlife.be0a9cbf.png","src/src/mushlife.png"],"src/src/mushlife.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"./src\\bg.jpg":[["bg.71a744d5.jpg","src/src/bg.jpg"],"src/src/bg.jpg"],"./src\\brik.jpg":[["brik.91577472.jpg","src/src/brik.jpg"],"src/src/brik.jpg"],"./src\\mush.png":[["mush.58ebb4ff.png","src/src/mush.png"],"src/src/mush.png"],"./src\\mushlife.png":[["mushlife.be0a9cbf.png","src/src/mushlife.png"],"src/src/mushlife.png"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 require("./styles.css");
@@ -209,12 +209,12 @@ document.getElementById("app").innerHTML = "\n<h2>Vie(s) &#9825 : <span class=\"
 var startButton = document.querySelector(".start");
 var nextButton = document.querySelector(".next"); //Sound
 
-var coin = new Audio("src/Coin_Sound.mp3"); // buffers automatically when created
+var coin = new Audio('./src/src/Coin_Sound.mp3'); // buffers automatically when created
 
-var Bump = new Audio("src/Bump_Sound.mp3");
-var startSound = new Audio("src/Mario_Sound_Effect.mp3");
-var nextSound = new Audio("src/Woo_Hoo.mp3");
-var endSound = new Audio("src/Game_Over.mp3"); //random time
+var Bump = new Audio("./src/src/Bump_Sound.mp3");
+var startSound = new Audio("./src/src/Mario_Sound_Effect.mp3");
+var nextSound = new Audio("./src/src/Woo_Hoo.mp3");
+var endSound = new Audio("./src/src§/Game_Over.mp3"); //random time
 
 function randTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -257,9 +257,9 @@ function peep() {
       vieBoard.innerHTML = "Game Over";
       thend.style.top = "-90%";
       return;
-    }
+    } //console.log(vie);
 
-    console.log(vie);
+
     if (!timeUp) peep();
   }, time);
 } //gain onelife
@@ -307,8 +307,7 @@ startButton.addEventListener("click", function () {
   lvl = 1;
   vitMin = 1400;
   vitMax = 2200;
-  lvlBoard.innerHTML = lvl; // oneLife();
-
+  lvlBoard.innerHTML = lvl;
   peep();
   setTimeout(function () {
     oneLife();
@@ -378,7 +377,7 @@ board.addEventListener("click", function (e) {
     thend.style.top = "-90%";
   }
 });
-},{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./styles.css":"src/styles.css"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -406,7 +405,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51919" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "18736" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -582,5 +581,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.js.map

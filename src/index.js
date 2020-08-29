@@ -20,11 +20,11 @@ let startButton = document.querySelector(".start");
 let nextButton = document.querySelector(".next");
 
 //Sound
-let coin = new Audio("src/Coin_Sound.mp3"); // buffers automatically when created
-let Bump = new Audio("src/Bump_Sound.mp3");
-let startSound = new Audio("src/Mario_Sound_Effect.mp3");
-let nextSound = new Audio("src/Woo_Hoo.mp3");
-let endSound = new Audio("src/Game_Over.mp3");
+let coin = new Audio('./src/src/Coin_Sound.mp3'); // buffers automatically when created
+let Bump = new Audio("./src/src/Bump_Sound.mp3");
+let startSound = new Audio("./src/src/Mario_Sound_Effect.mp3");
+let nextSound = new Audio("./src/src/Woo_Hoo.mp3");
+let endSound = new Audio("./src/src§/Game_Over.mp3");
 //random time
 function randTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -65,7 +65,7 @@ function peep() {
       thend.style.top = "-90%";
       return;
     }
-    console.log(vie);
+    //console.log(vie);
     if (!timeUp) peep();
   }, time);
 }
@@ -111,7 +111,7 @@ startButton.addEventListener("click", () => {
   vitMin = 1400;
   vitMax = 2200;
   lvlBoard.innerHTML = lvl;
-  // oneLife();
+
   peep();
 
   setTimeout(function () {
