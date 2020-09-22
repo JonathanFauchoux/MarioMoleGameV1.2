@@ -1,4 +1,5 @@
 import "./styles.css";
+import {Howl, Howler} from 'howler';
 const board = document.querySelector(".game");
 const holes = document.querySelectorAll(".hole");
 
@@ -20,11 +21,22 @@ let startButton = document.querySelector(".start");
 let nextButton = document.querySelector(".next");
 
 //Sound
-let coin = new Audio('./src/src/Coin_Sound.mp3'); // buffers automatically when created
-let Bump = new Audio("./src/src/Bump_Sound.mp3");
-let startSound = new Audio("./src/src/Mario_Sound_Effect.mp3");
-let nextSound = new Audio("./src/src/Woo_Hoo.mp3");
-let endSound = new Audio("./src/src§/Game_Over.mp3");
+let coin = new Howl({
+  src: ['./Coin_Sound.mp3']
+}); // buffers automatically when created
+let Bump = new Howl({
+  src: ['./Bump_Sound.mp3']
+});
+let startSound = new Howl({
+  src: ['./Mario_Sound_Effect.mp3']
+});
+let nextSound = new Howl({
+  src: ['./Woo_Hoo.mp3']
+});
+let endSound = new Howl({
+  src: ['./Game_Over.mp3']
+});
+
 //random time
 function randTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -96,6 +108,7 @@ function oneLife() {
 }
 //Start & setup game
 startButton.addEventListener("click", () => {
+  
   startSound.playbackRate = 1.2;
   startSound.play();
   startButton.disabled = true;
@@ -155,6 +168,7 @@ nextButton.addEventListener("click", () => {
     }
   }, 10000);
 });
+
 //ecoute des events Plateau
 board.addEventListener("click", (e) => {
   let vieBoard = document.querySelector(".vie");
